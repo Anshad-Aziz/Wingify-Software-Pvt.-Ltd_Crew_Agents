@@ -54,3 +54,8 @@ The original code contained several bugs that prevented it from running correctl
    ```sh
    git clone <repository-url>
    cd blood-test-report-analyzer
+
+2.Installation
+   ```sh
+     pip install -r requirements.txt
+
