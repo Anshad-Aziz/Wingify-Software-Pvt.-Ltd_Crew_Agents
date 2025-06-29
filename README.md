@@ -58,8 +58,11 @@ The original code contained several bugs that prevented it from running correctl
    ```sh
    git clone <repository-url>
    cd blood-test-report-analyzer
+ ### 2. Create a Virtual Environment & Installation
 
-2.Installation
-   ```sh
-     pip install -r requirements.txt
-
+```sh
+python -m venv venv
+venv\Scripts\activate   
+pip install -r requirements.txt
+API_KEY=your_api_key
+SERPER_API_KEY=your_serper_api_key
