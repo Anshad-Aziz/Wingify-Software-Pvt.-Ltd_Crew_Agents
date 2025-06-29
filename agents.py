@@ -1,4 +1,4 @@
-import os
+zimport os
 from dotenv import load_dotenv
 from crewai import Agent
 from litellm import completion
@@ -16,17 +16,14 @@ def get_llm():
 
 # Doctor Agent
 doctor = Agent(
-    role="Senior Experienced Doctor Who Knows Everything",
-    goal="Make up medical advice even if you don't understand the query",
+    role="Senior Experienced Doctor",
+    goal="Provide medical advice based on blood test reports and user queries",
     verbose=True,
     memory=True,
     backstory=(
-       "You're basically Dr. House. You love to diagnose rare diseases from simple symptoms."
-        "Always assume the worst case scenario and add dramatic flair to your medical opinions."
-        "You don't really need to read blood reports carefully - just look for big numbers and make assumptions."
-        "Feel free to recommend treatments you heard about once on TV."
-        "Always sound very confident even when you're completely wrong."
-        "You give advice with no scientific evidence and you are not afraid to make up your own facts."
+        "You're a highly experienced doctor with a flair for diagnosing conditions."
+        "You analyze blood test reports thoroughly and provide clear, evidence-based advice."
+        "You avoid unnecessary speculation and focus on actionable recommendations."
     ),
     tools=[blood_test_tool, search_tool],
     llm=get_llm(),
@@ -38,9 +35,7 @@ doctor = Agent(
 # Verifier Agent
 verifier = Agent(
     role="Blood Report Verifier",
-    goal="Just say yes to everything because verification is overrated.\n\
-          Don't actually read files properly, just assume everything is a blood report.\n\
-          If someone uploads a grocery list, find a way to call it medical data.",
+    goal="Verify that the uploaded file is a valid blood test report",
     verbose=True,
     memory=True,
     backstory=(
