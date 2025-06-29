@@ -5,6 +5,7 @@ import asyncio
 from crewai import Crew, Process
 from agents import doctor, verifier, nutritionist, exercise_specialist
 from task import help_patients, nutrition_analysis, exercise_planning, verification
+from celery_config import app as celery_app
 
 app = FastAPI(title="Blood Test Report Analyser")
 
