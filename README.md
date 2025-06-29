@@ -38,7 +38,11 @@ The original code contained several bugs that prevented it from running correctl
    - **Issue**: `read_data_tool` used a hardcoded `data/sample.pdf` path.
    - **Fix**: Passed dynamic `file_path` from `main.py` to tasks and tools.
 
-9. **Silent File Cleanup Errors**:
+9. **Unrealistic Agent Behavior and Unsafe Recommendations**:
+   - **Issue**: The agents’ backstories and goals encourage dangerous behavior (e.g., making up diagnoses, ignoring medical accuracy).
+   - **Fix**:Tone down the backstories to focus on realistic, safe recommendations.
+
+10. **Silent File Cleanup Errors**:
    - **Issue**: File cleanup errors were silently ignored.
    - **Fix**: Added logging for cleanup errors.
 
